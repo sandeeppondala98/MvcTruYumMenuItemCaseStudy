@@ -1,0 +1,58 @@
+﻿@model MvcTruYumMenuItemCaseStudy.Models.MenuItem
+@{
+    ViewBag.Title = "CreateMenuItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<h4>MenuItem</h4>
+
+@using (@Html.BeginForm("CreateMenuItem","MenuItems",FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBox("Name", "", new { @class = "form-control" })
+    @Html.ValidationMessage("Name")
+</div>
+    <div class="checkbox">
+        <label>
+
+            @Html.CheckBox("freeDelivery")
+            @Html.LabelFor(m => m.freeDelivery)
+
+        </label>
+    </div>
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBox("Price", "", new { @class = "form-control" })
+
+        @Html.ValidationMessage("Price")
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.dateOfLaunch)
+        @Html.TextBox("DateOfLaunch", "", new { @class = "form-control datepicker", placeholder = "DD/MM/YYYY", maxlength = "100" })
+        @Html.ValidationMessage("DateOfLaunch")
+    </div>
+
+    <div class="checkbox">
+        <label>
+
+            @Html.CheckBox("Active")
+            @Html.LabelFor(m => m.Active)
+
+        </label>
+    </div>
+
+    <div class="form-group">
+
+        @Html.Label("Category")
+
+        @Html.DropDownListFor(m => m.Category.Name,ViewBag.Categories as SelectList, "select the categories", new { @class = "form-control" })
+        
+    </div>
+    @Html.Hidden("Id")
+    <button type="submit" class="btn btn-primary">Create</button>
+
+}
+

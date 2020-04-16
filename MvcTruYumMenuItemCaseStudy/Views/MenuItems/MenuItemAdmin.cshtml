@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "MenuItemAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Menu items</h2>
+<h3>@Html.ActionLink("Create New", "CreateMenuItem", "MenuItems", new { isAdmin = true }, null)</h3>
+<h3>@Html.ActionLink("Edit Menu", "EditMenuItem", "MenuItems", new { isAdmin = true }, null)</h3>
+
+
+

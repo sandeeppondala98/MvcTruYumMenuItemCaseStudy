@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcTruYumMenuItemCaseStudy.Models.MenuItem>
+@{
+    ViewBag.Title = "ViewCartItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CartItems</h2>
+
+<table width="100%">
+    <tr>
+        <th>Name</th>
+        <th>Free Delivery</th>
+        <th>Price</th>
+        
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <th>@item.freeDelivery</th>
+            <th>@item.Price</th>
+            <th>@Html.ActionLink("Delete", "DeleteFromCart", "Cart", new { id = item.Id }, new { @class = "navbar-brand" })</th>
+        </tr>
+
+    }
+
+</table>
+
